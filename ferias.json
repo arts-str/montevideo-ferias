@@ -1,0 +1,52 @@
+{
+    "municipios":[
+        {
+            "nombre": "B",
+            "ccz": [
+                {
+                    "numero": 1,
+                    "barrios":[
+                        {
+                            "nombre":"Barrio Sur",
+                            "ferias": [
+                                {
+                                    "calles":"Héctor Gutiérrez Ruiz entre Canelones y Maldonado.",
+                                    "dia": "Domingo.",
+                                    "long":-34.90920073680038,
+                                    "lat": -56.19101038318976,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Durazno entre Convención y Wilson Ferreira Aldunate.",
+                                    "dia": "Martes.",
+                                    "long":-34.9109303307145, 
+                                    "lat": -56.19591351827287,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "nombre":"Ciudad Vieja",
+                            "ferias": [
+                                {
+                                    "calles":"Bartolomé Mitre entre Cerrito y Piedras.",
+                                    "dia": "Martes.",
+                                    "long":-34.903747108526744,
+                                    "lat": -56.203470271353524,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Guaraní entre Sarandí y Buenos Aires.",
+                                    "dia": "Viernes.",
+                                    "long":-34.91016973584293, 
+                                    "lat": -56.211529784499085,
+                                    "zoom": 18
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
