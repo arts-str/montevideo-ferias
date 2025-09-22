@@ -7,6 +7,7 @@
                     "numero": 1,
                     "barrios":[
                         {
+                            "id": 0,
                             "nombre":"Barrio Sur",
                             "ferias": [
                                 {
@@ -26,6 +27,7 @@
                             ]
                         },
                         {
+                            "id": 1,
                             "nombre":"Ciudad Vieja",
                             "ferias": [
                                 {
@@ -40,6 +42,72 @@
                                     "dia": "Viernes.",
                                     "long":-34.91016973584293, 
                                     "lat": -56.211529784499085,
+                                    "zoom": 18
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": 2,
+                    "barrios":[
+                        {
+                            "id": 2,
+                            "nombre":"Aguada",
+                            "ferias": [
+                                {
+                                    "calles":"Piedra Alta y Lima.",
+                                    "dia": "Sábado.",
+                                    "long": -34.89518626945041, 
+                                    "lat": -56.18663956206186,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id":3,
+                            "nombre":"Cordón",
+                            "ferias": [
+                                {
+                                    "calles":"Carlos Roxlo entre AV. Uruguay Y Paysandú.",
+                                    "dia": "Jueves.",
+                                    "long":-34.901201045411625, 
+                                    "lat": -56.18283501521239,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Chaná y Gaboto.",
+                                    "dia": "Viernes.",
+                                    "long":-34.905628992972424, 
+                                    "lat": -56.177186629749876,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Guaná entre Manuel Blanes y Jackson.",
+                                    "dia": "Viernes.",
+                                    "long":-34.90529925369481, 
+                                    "lat": -56.172794920096024,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Salto, desde Soriano hasta San Salvador.",
+                                    "dia": "Sábado.",
+                                    "long":-34.909472706959825, 
+                                    "lat": -56.18194359163101,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Acevedo Díaz y Francisco Canaro.",
+                                    "dia": "Sábado.",
+                                    "long":-34.89905513617143, 
+                                    "lat": -56.166863971769445,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles":"Tristán Narvaja y Av. 18 de Julio.",
+                                    "dia": "Domingo.",
+                                    "long":-34.90244338848147, 
+                                    "lat": -56.177265031512206,
                                     "zoom": 18
                                 }
                             ]

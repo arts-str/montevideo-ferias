@@ -9,17 +9,16 @@ function addMarkers() {
     for (const municipio of municipiosObj.municipios) {
         
         for (const ccz of municipio.ccz) {
-            ccz.barrios.forEach((barrio, i) => {
+            ccz.barrios.forEach((barrio) => {
                 for (const feria of barrio.ferias) {
                     const marker = L.marker([feria.long, feria.lat]).addTo(map);
-                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b>`)
+                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir</a>`)
                     marker.addEventListener('click', () => {
-                        for (const item of listadoFerias.children) {
+                        for (const item of document.querySelectorAll('.active')) {
                             item.classList.replace('active', 'inactive');
                         }
-                        var listItem = document.getElementById(i);
+                        var listItem = document.getElementById(barrio.id);
                         listItem.classList.replace('inactive', 'active');
-                        console.log(listItem);
                     });
                 }
             })

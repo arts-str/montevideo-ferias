@@ -5,16 +5,24 @@ function loadList() {
         
         
         listadoFerias.innerHTML += `
-        <li class="inactive"><h3>Municipio ${municipio.nombre}</h3></li>
+        <div class="inactive" id="">
+            <h3>Municipio ${municipio.nombre}</h3>
+            ${returnBarrios(municipio)}
+        </div>
     `
         
-        for (const ccz of municipio.ccz) {
-            ccz.barrios.forEach((barrio, i) => {
-                listadoFerias.innerHTML += `
-                    <li class="inactive" id="${i}">${barrio.nombre}</li>
-                `
-            }); 
-        }
+        
     }
 }
 
+function returnBarrios(municipio) {
+    let listado = '';
+    for (const ccz of municipio.ccz) {
+        ccz.barrios.forEach((barrio, i) => {
+            listado += `
+                <li class="inactive" id="${barrio.id}">${barrio.nombre}</li>
+            `
+        }); 
+    }
+    return listado;
+}
