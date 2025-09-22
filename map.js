@@ -12,7 +12,7 @@ function addMarkers() {
             ccz.barrios.forEach((barrio) => {
                 for (const feria of barrio.ferias) {
                     const marker = L.marker([feria.long, feria.lat]).addTo(map);
-                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir</a>`)
+                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a target="_blank" href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir</a>`)
                     marker.addEventListener('click', () => {
                         for (const item of document.querySelectorAll('.active')) {
                             item.classList.replace('active', 'inactive');
