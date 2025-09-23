@@ -44,10 +44,12 @@ function selectOnMap(id, element) {
 }
 
 function showAllMarkers(element) {
-    for (const item of document.querySelectorAll('.active')) {
-        item.classList.replace('active', 'inactive');
+    if (element) {
+        for (const item of document.querySelectorAll('.active')) {
+            item.classList.replace('active', 'inactive');
+        }
+        element.classList.replace('inactive', 'active');
     }
-    element.classList.replace('inactive', 'active');
     for (const marker of markers) {
         marker[0].setOpacity(1);
     }

@@ -209,6 +209,216 @@
                     ]
                 }
             ]
+        },
+        {
+            "id": 1,
+            "nombre": "A",
+            "ccz": [
+                {
+                    "numero": 14,
+                    "barrios": [
+                        {
+                            "id": 10,
+                            "nombre": "Belvedere",
+                            "ferias": [
+                                {
+                                    "calles": "Villavicencio y Santa Lucía.",
+                                    "dia": "Martes",
+                                    "long": -34.84984448424976, 
+                                    "lat": -56.22923567316976,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Emilio Romero, desde India Muerta hasta Vicente Basagoity.",
+                                    "dia": "Miércoles",
+                                    "long": -34.859940716722846, 
+                                    "lat": -56.21900424989443,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Vicente Basagoity desde avenida Carlos María Ramírez a A. Vaillant (transitorio por obras).",
+                                    "dia": "Viernes",
+                                    "long": -34.85497538288569, 
+                                    "lat": -56.228995633640025,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "nombre": "La Teja",
+                            "ferias": [
+                                {
+                                    "calles": "Luis Batlle Berres y Madre Rubatto.",
+                                    "dia": "Domingo",
+                                    "long": -34.85955775863526, 
+                                    "lat": -56.22542358889832,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Rivera Indarte y Carlos María Ramírez.",
+                                    "dia": "Sábado",
+                                    "long": -34.86629418358281, 
+                                    "lat": -56.23632542374944,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "nombre": "Prado - Nueva Savona",
+                            "ferias": [
+                                {
+                                    "calles": "Pilar Costa e India Muerta.",
+                                    "dia": "Jueves",
+                                    "long": -34.85990666225434, 
+                                    "lat": -56.217581042019525,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "nombre": "Nuevo París",
+                            "ferias": [
+                                {
+                                    "calles": "Triunfo desde Carlos de la Vega hasta 30 m pasado la intersección con Juliana Laguna.",
+                                    "dia": "Domingo",
+                                    "long": -34.84705911365604, 
+                                    "lat": -56.23946296520742,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Alfredo Gobbi y Romeo Gavioli.",
+                                    "dia": "Miércoles",
+                                    "long": -34.841848006606085, 
+                                    "lat": -56.257402048967535,
+                                    "zoom": 18
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": 17,
+                    "barrios": [
+                        {
+                            "id": 14,
+                            "nombre": "Casabó - Pajas Blancas",
+                            "ferias": [
+                                {
+                                    "calles": "Etiopía y Liberia.",
+                                    "dia": "Viernes",
+                                    "long": -34.887643348451036, 
+                                    "lat": -56.26951617789621,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Camino Santa Catalina y Del Palangre.",
+                                    "dia": "Domingo",
+                                    "long": -34.89315395723053, 
+                                    "lat": -56.29183839221641,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 15,
+                            "nombre": "Cerro - Paso de la Arena",
+                            "ferias": [
+                                {
+                                    "calles": "Austria, Bogotá, China, Portugal.",
+                                    "dia": "Domingo",
+                                    "long": -34.88121042885172,
+                                    "lat": -56.25266422041724,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Polonia y Carlos María Ramírez.",
+                                    "dia": "Martes",
+                                    "long": -34.87503287431838, 
+                                    "lat": -56.25782149579983,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Centroamérica y Grecia.",
+                                    "dia": "Jueves",
+                                    "long": -34.88928124477944, 
+                                    "lat": -56.24828011248892,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Perú y Gibraltar.",
+                                    "dia": "Sábado",
+                                    "long": -34.88037884010716, 
+                                    "lat": -56.26347321272738,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 16,
+                            "nombre": "La Paloma - Tomkinson",
+                            "ferias": [
+                                {
+                                    "calles": "Verdún y Camino de las Tropas.",
+                                    "dia": "Viernes",
+                                    "long": -34.86539433840539, 
+                                    "lat": -56.259778469491515,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "1ª Paralela a San Fuentes y Cibils.",
+                                    "dia": "Miércoles",
+                                    "long": -34.87231573157004, 
+                                    "lat": -56.26703600877131,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Alfredo Moreno y Camino Tomkinson.",
+                                    "dia": "Jueves",
+                                    "long": -34.83732183196548, 
+                                    "lat": -56.27364135967072,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Paralela a Av. Luis Batlle Berres y Manuel Artigas.",
+                                    "dia": "Domingo",
+                                    "long": -34.83758371276528, 
+                                    "lat": -56.26858972733407,
+                                    "zoom": 18
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "numero": 18,
+                    "barrios": [
+                        {
+                            "id": 17,
+                            "nombre": "Paso de la Arena",
+                            "ferias": [
+                                {
+                                    "calles": "Silvestre Ochoa y Av. Luis Batlle Berres.",
+                                    "dia": "Viernes",
+                                    "long": -34.79023890767199, 
+                                    "lat": -56.35245683606159,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Zanja Reyuna e Ideario Artiguista.",
+                                    "dia": "Sábado",
+                                    "long": -34.8230066322406, 
+                                    "lat": -56.28805350685325,
+                                    "zoom": 18
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
+        
     ]
 }

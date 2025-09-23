@@ -44,7 +44,7 @@ aside ul{
     background-color: var(--light-bg-active);
 }
 
-.barrio:hover, .municipio:hover{
+.barrio:hover, .municipio:hover, #listadoFerias h3:hover{
     cursor: pointer;
     background-color: var(--light-bg-hover);
 }
@@ -64,6 +64,28 @@ aside ul{
     transform: translateX(0);
 }
 
+.rotated{
+    rotate: 180deg;
+}
+
+.municipio-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.municipio-head svg{
+    transition: rotate 100ms ease-in-out;
+}
+
+.contents{
+    width: 100%;
+    display: none;
+}
+
+.desplegado{
+    display: inline-block;
+}
+
 /*Tablet*/
 @media only screen and (max-width: 768px) {
     main{
@@ -76,9 +98,9 @@ aside ul{
     aside{
         position: absolute;
         height: fit-content;
-        width: 100vw;
+        width: 85%;
         padding: 2rem 2rem 3rem 2rem;
-        transform: translateX(-100%);
+        transform: translateX(110%);
     }
     h2{
         font-size: 2rem;
@@ -95,21 +117,4 @@ aside ul{
 
 /*Movil*/
 @media only screen and (max-width: 320px) {
-    main{
-        overflow-x: hidden;
-    }
-    aside{
-        width: 100vw;
-        padding: 2rem;
-    }
-    h2{
-        font-size: 2rem;
-    }
-    aside ul{
-        font-size: 1.2rem;
-
-    }
-    aside ul li{
-        font-size: 1.2rem;
-    }
 }
