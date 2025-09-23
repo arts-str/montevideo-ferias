@@ -1,6 +1,7 @@
 {
     "municipios":[
         {
+            "id": 0,
             "nombre": "B",
             "ccz": [
                 {
@@ -111,7 +112,100 @@
                                     "zoom": 18
                                 }
                             ]
+                        },
+                        {
+                            "id":4,
+                            "nombre":"Centro",
+                            "ferias": [
+                                {
+                                    "calles":"Julio Herrera y Obes entre Maldonado y Durazno.",
+                                    "dia": "Viernes.",
+                                    "long":-34.910351466597625, 
+                                    "lat": -56.1943052175842,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id":5,
+                            "nombre":"La Comercial",
+                            "ferias": [
+                                {
+                                    "calles":"General Pagola, desde la calle Duvimioso Terra hasta la calle Cufré.",
+                                    "dia": "Sábado.",
+                                    "long":-34.88993786401883, 
+                                    "lat": -56.1679691212487,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "nombre": "Palermo",
+                            "ferias": [
+                                {
+                                    "calles": "Martínez Trueba y Canelones.",
+                                    "dia": "Martes.",
+                                    "long": -34.908139020642956,
+                                    "lat": -56.1830680819901,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Isla de Flores, desde Gaboto hasta Isla de Flores 1780.",
+                                    "dia": "Jueves.",
+                                    "long": -34.9104746265099, 
+                                    "lat": -56.17710879465696,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "nombre": "Parque Rodó",
+                            "ferias": [
+                                {
+                                    "calles": "San Salvador desde la calle Dr. Pablo de María hasta el Nº 2121.",
+                                    "dia": "Miércoles.",
+                                    "long": -34.91093143346358, 
+                                    "lat": -56.17041224434941,
+                                    "zoom": 18
+                                },
+                                {
+                                    "calles": "Acevedo Díaz entre Canelones y Charrúa.",
+                                    "dia": "Martes.",
+                                    "long": -34.9062969048067, 
+                                    "lat": -56.16611001788214,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "nombre": "Tres Cruces",
+                            "ferias": [
+                                {
+                                    "calles": "Juan Paullier, desde Av. Rivera hasta J. Paullier 1482.",
+                                    "dia": "Martes.",
+                                    "long": -34.90215447853774, 
+                                    "lat": -56.16793781485319,
+                                    "zoom": 18
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "nombre": "Villa Muñoz / Retiro",
+                            "ferias": [
+                                {
+                                    "calles": "Democracia, desde Hocquart hasta Gral. Pagola.",
+                                    "dia": "Domingo.",
+                                    "long": -34.890248062489285, 
+                                    "lat": -56.17674302696225,
+                                    "zoom": 18
+                                }
+                            ]
                         }
+                        
                     ]
                 }
             ]
