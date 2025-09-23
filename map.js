@@ -34,6 +34,7 @@ function selectOnMap(id, element) {
         item.classList.replace('active', 'inactive');
     }
     element.classList.replace('inactive', 'active');
+
     for (const marker of markers) {
         if(marker[1] !== id){
             marker[0].setOpacity(0);
@@ -41,6 +42,30 @@ function selectOnMap(id, element) {
             marker[0].setOpacity(1);
         }
     }
+
+    for (const municipio of municipiosObj.municipios) {
+        for (const ccz of municipio.ccz) {
+            ccz.barrios.forEach((barrio) => {
+                if (id === barrio.id) {
+                    const group = L.featureGroup(returnMarkers(barrio.id));
+                    map.fitBounds(group.getBounds(), {maxZoom: 15.49});
+                }
+            })
+        }
+    }
+
+    
+    menu.classList.remove('show');
+}
+
+function returnMarkers(barrioID) {
+    let output = [];
+    for (const marker of markers) {
+        if(marker[1] === barrioID){
+            output.push(marker[0]);
+        }
+    }
+    return output;
 }
 
 function showAllMarkers(element) {
@@ -53,6 +78,8 @@ function showAllMarkers(element) {
     for (const marker of markers) {
         marker[0].setOpacity(1);
     }
+    map.setView([-34.894208201285736, -56.165005617911504], 11);
+    menu.classList.remove('show');
 }
 
 function showMunicipioMarkers(id, element) {

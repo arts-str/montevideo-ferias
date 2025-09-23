@@ -48,6 +48,9 @@ aside ul{
     cursor: pointer;
     background-color: var(--light-bg-hover);
 }
+#listadoFerias h3, #listadoFerias li{
+    user-select: none;
+}
 
 .menu-hamburguesa{
     background-color: var(--light-bg);
