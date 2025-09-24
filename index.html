@@ -20,6 +20,8 @@
         <aside id="menu">
             <h2>Municipios</h2>
             <ul id="listadoFerias">
+                
+                <h3 onclick="getLocation()" class="inactive">geolocate</h3>
                 <h3 onclick="showAllMarkers(this)" class="active">Mostrar todos</h3>
             </ul>
         </aside>
@@ -28,6 +30,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     <script src="leaflet.geometryutil.js"></script>
      <script src="fetch.js"></script>
      <script src="map.js"></script>
     <script src="script.js"></script>
