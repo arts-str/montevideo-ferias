@@ -114,10 +114,7 @@ function showMunicipioMarkers(id, element) {
     
 }
 
-setTimeout(() => {
-    getLocation();
-    console.log('location');
-}, 1000);
+getLocation();
 function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -133,9 +130,9 @@ function showPosition(position) {
         markersPositions.push(marker[0].getLatLng());
     }
     let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
-    //let userPosition = L.latLng(-34.90567780080285, -56.165966834572934);
+    //let userPosition = L.latLng(-34.907174333039514, -56.17920902148484);
     returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
-    L.marker(userPosition, {icon: greenIcon}).addTo(map);
+    L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
 }
 
 function findDistance(point1, point2) {
