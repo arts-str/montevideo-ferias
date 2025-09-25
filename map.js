@@ -126,23 +126,38 @@ function getLocation() {
     }
 } 
 
-function checkMarkers(markers, position) {
-    for (const marker of markers) {
-        if (marker[0].getLatLng().equals(position)) {
-            return marker[0];
-        }
-    }
-}
   
 function showPosition(position) {
     let markersPositions = [];
     for (const marker of markers) {
         markersPositions.push(marker[0].getLatLng());
     }
-    let userPosition = L.latLng(position.coords.latitude, position.coords.longitude)
-    let closestPosition = L.GeometryUtil.closest(map, markersPositions, userPosition);
-    
+    let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
+    //let userPosition = L.latLng(-34.90567780080285, -56.165966834572934);
+    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
     L.marker(userPosition, {icon: greenIcon}).addTo(map);
-    checkMarkers(markers, closestPosition).setIcon(redIcon);
-    //L.marker(closestPosition, {icon: redIcon}).addTo(map);
+}
+
+function findDistance(point1, point2) {
+    return map.distance(point1, point2);
+}
+
+function getDistanceArray(position, markers) {
+    let output = [];
+    for (const marker of markers) {
+        output.push([findDistance(position, marker[0].getLatLng()), marker[0]]);
+    }
+    return output
+}
+
+function returnClosestMarker(distanceArray) {
+    let smallest = distanceArray[0][0];
+    let smallestMarker;
+    for (let i = 0; i < distanceArray.length; i++) {
+        if(distanceArray[i][0] < smallest){
+            smallest = distanceArray[i][0];
+            smallestMarker = distanceArray[i][1];
+        }
+    }
+    return smallestMarker;
 }
