@@ -307,10 +307,10 @@
                                     "zoom": 18
                                 },
                                 {
-                                    "calles":"Edil Hugo Prato entre Acevedo Díaz y Dr. Mario Cassinoni.",
-                                    "dia": "Martes.",
-                                    "long": -34.90901646469378, 
-                                    "lat": -56.165261939138404,
+                                    "calles":"Acevedo Díaz y Francisco Canaro.",
+                                    "dia": "Sábado.",
+                                    "long":-34.89905513617143, 
+                                    "lat": -56.166863971769445,
                                     "zoom": 18
                                 },
                                 {
@@ -380,10 +380,10 @@
                                     "zoom": 18
                                 },
                                 {
-                                    "calles": "Acevedo Díaz entre Canelones y Charrúa.",
+                                    "calles":"Edil Hugo Prato entre Acevedo Díaz y Dr. Mario Cassinoni.",
                                     "dia": "Martes.",
-                                    "long": -34.9062969048067, 
-                                    "lat": -56.16611001788214,
+                                    "long": -34.90901646469378, 
+                                    "lat": -56.165261939138404,
                                     "zoom": 18
                                 }
                             ]
