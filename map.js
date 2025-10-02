@@ -1,5 +1,6 @@
 var map = L.map('map').setView([-34.894208201285736, -56.165005617911504], 13);
 let markers = [];
+let userMarker;
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -10,6 +11,14 @@ var greenIcon = new L.Icon({
 });
 var redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+var blueIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -123,16 +132,24 @@ function getLocation() {
     }
 } 
 
+function updateLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(updateUserPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+} 
+
+
   
 function showPosition(position) {
-    let markersPositions = [];
-    for (const marker of markers) {
-        markersPositions.push(marker[0].getLatLng());
-    }
     let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
     //let userPosition = L.latLng(-34.907174333039514, -56.17920902148484);
     returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
-    L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
+    userMarker = L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
+    setInterval(() => {
+        updateLocation();
+    }, 5000);
 }
 
 function findDistance(point1, point2) {
@@ -157,4 +174,19 @@ function returnClosestMarker(distanceArray) {
         }
     }
     return smallestMarker;
+}
+
+function updateUserPosition(position) {
+    let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
+    returnRedMarker(markers).setIcon(blueIcon);
+    userMarker.setLatLng(userPosition);
+    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
+}
+
+function returnRedMarker(markers) {
+    for (const marker of markers) {
+        if (marker[0].getIcon() === redIcon) {
+            return marker[0];
+        }
+    }
 }
