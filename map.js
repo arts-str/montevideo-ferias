@@ -1,6 +1,6 @@
 var map = L.map('map').setView([-34.894208201285736, -56.165005617911504], 13);
 let markers = [];
-let userMarker;
+let userMarker, userPosition;
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -143,12 +143,13 @@ function updateLocation() {
 
   
 function showPosition(position) {
-    let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
+    userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
     //let userPosition = L.latLng(-34.907174333039514, -56.17920902148484);
     returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
     userMarker = L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
     setInterval(() => {
         updateLocation();
+        console.log(userPosition);
     }, 5000);
 }
 
@@ -177,7 +178,7 @@ function returnClosestMarker(distanceArray) {
 }
 
 function updateUserPosition(position) {
-    let userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
+    userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
     returnRedMarker(markers).setIcon(blueIcon);
     userMarker.setLatLng(userPosition);
     returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
@@ -188,5 +189,11 @@ function returnRedMarker(markers) {
         if (marker[0].getIcon() === redIcon) {
             return marker[0];
         }
+    }
+}
+
+function showUser() {
+    if (userPosition !== undefined) {
+        map.flyTo([userPosition.lat, userPosition.lng], 16, {animate: true, animate: true, duration: 1, noMoveStart: true});
     }
 }

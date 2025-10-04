@@ -63,6 +63,21 @@ aside ul{
     z-index: 2;
 }
 
+.locate-user{
+    background-color: var(--light-bg);
+    width: fit-content;
+    padding: 1rem .8rem .5rem .8rem;
+    position: fixed;
+    bottom: 2rem;
+    border-radius: 5rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+.locate-user:hover{
+    background-color: var(--light-bg-hover);
+}
+
 .show{
     transform: translateX(0);
 }
