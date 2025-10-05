@@ -74,6 +74,10 @@ aside ul{
     z-index: 1;
 }
 
+.locate-user:target{
+    background-color: var(--light-bg-active);
+}
+
 .locate-user:hover{
     background-color: var(--light-bg-hover);
 }
@@ -86,6 +90,7 @@ aside ul{
     rotate: 180deg;
 }
 
+
 .municipio-head{
     display: flex;
     justify-content: space-between;
@@ -95,13 +100,19 @@ aside ul{
     transition: rotate 100ms ease-in-out;
 }
 
-.contents{
-    width: 100%;
-    display: none;
+.contents{    
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 200ms ease, opacity 200ms ease;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .desplegado{
-    display: inline-block;
+    max-height: 500px; /* big enough for all list items */
+    opacity: 1;
 }
 
 /*Tablet*/

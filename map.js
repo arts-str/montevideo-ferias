@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-34.894208201285736, -56.165005617911504], 13);
+var map = L.map('map', { zoomControl: false }).setView([-34.894208201285736, -56.165005617911504], 13);
 let markers = [];
 let userMarker, userPosition;
 var greenIcon = new L.Icon({
@@ -25,6 +25,8 @@ var blueIcon = new L.Icon({
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
 });
+
+
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -149,7 +151,6 @@ function showPosition(position) {
     userMarker = L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
     setInterval(() => {
         updateLocation();
-        console.log(userPosition);
     }, 5000);
 }
 
