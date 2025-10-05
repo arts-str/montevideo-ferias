@@ -15,6 +15,7 @@ self.addEventListener('install', event => {
         '/assets/mf-logo-192.png',
         '/assets/mf-logo-512.png',
         '/assets/mf-startup.png',
+        '/assets/mf-logo-180.png',
         OFFLINE_URL
       ]);
     })
