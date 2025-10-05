@@ -1,23 +1,24 @@
 {
     "name": "Montevideo Ferias",
     "short_name": "Ferias",
-    "start_url": "/",
+    "start_url": "./",
+    "scope": "./",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#ffffff",
     "icons": [
       {
-        "src": "/assets/mf-logo-192.png",
+        "src": "./assets/mf-logo-192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/assets/mf-logo-512.png",
+        "src": "./assets/mf-logo-512.png",
         "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "/assets/mf-logo-180.png",
+        "src": "./assets/mf-logo-180.png",
         "sizes": "180x180",
         "type": "image/png"
       }
