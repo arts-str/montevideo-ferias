@@ -9,6 +9,11 @@
     --light-bg-active: #b9b9b9;
 }
 
+html{
+    
+    overflow-x: hidden;
+}
+
 main{
     display: flex;
     flex-direction: row;
@@ -118,7 +123,6 @@ aside ul{
 /*Tablet*/
 @media only screen and (max-width: 768px) {
     main{
-        overflow-x: hidden;
         flex-direction: column-reverse;
     }
     .menu-hamburguesa{

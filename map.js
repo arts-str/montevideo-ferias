@@ -35,7 +35,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 function addMarkers() {
     for (const municipio of municipiosObj.municipios) {
-        
         for (const ccz of municipio.ccz) {
             ccz.barrios.forEach((barrio) => {
                 for (const feria of barrio.ferias) {
@@ -55,6 +54,7 @@ function addMarkers() {
         }
     }
     
+    getLocation();
 }
 
 function selectOnMap(id, element) {
@@ -106,7 +106,7 @@ function showAllMarkers(element) {
     for (const marker of markers) {
         marker[0].setOpacity(1);
     }
-    map.setView([-34.894208201285736, -56.165005617911504], 11);
+    map.flyTo([-34.894208201285736, -56.165005617911504], 11, {animate: true, animate: true, duration: 1, noMoveStart: true});
     menu.classList.remove('show');
 }
 
@@ -125,10 +125,19 @@ function showMunicipioMarkers(id, element) {
     
 }
 
-getLocation();
+const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+};
+
+function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
 function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(showPosition, error, options);
     } else {
       x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -147,11 +156,12 @@ function updateLocation() {
 function showPosition(position) {
     userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
     //let userPosition = L.latLng(-34.907174333039514, -56.17920902148484);
+    console.log(userPosition, markers);
     returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
     userMarker = L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
     setInterval(() => {
         updateLocation();
-    }, 5000);
+    }, );
 }
 
 function findDistance(point1, point2) {

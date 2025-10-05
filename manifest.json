@@ -5,7 +5,7 @@
     "scope": "./",
     "display": "standalone",
     "background_color": "#000000",
-    "theme_color": "#ffffff",
+    "theme_color": "#499f30",
     "icons": [
       {
         "src": "./assets/mf-logo-192.png",
