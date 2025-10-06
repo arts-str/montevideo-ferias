@@ -19,6 +19,17 @@ main{
     flex-direction: row;
 }
 
+.popup-anchor{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+.popup-anchor svg{
+    margin-left: .2rem;
+}
+
 #map { 
     height: 100vh; 
     width: 100%;

@@ -1,6 +1,7 @@
 var map = L.map('map', { zoomControl: false }).setView([-34.894208201285736, -56.165005617911504], 13);
 let markers = [];
 let userMarker, userPosition;
+let newTabSvg = '<svg width=".7rem" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#0078A8"><g id="Output-svg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="out" transform="translate(-838.000000, -29.000000)" fill="#0078A8"> <path d="M855,46 L841,46 L841,32 L848,32 L848,30 L841,30 C839.89,30 839,30.9 839,32 L839,46 C839,47.1 839.89,48 841,48 L855,48 C856.1,48 857,47.1 857,46 L857,39 L855,39 L855,46 L855,46 Z M850,30 L850,32 L853.59,32 L843.76,41.83 L845.17,43.24 L855,33.41 L855,37 L857,37 L857,30 L850,30 L850,30 Z" id="path"> </path> </g> </g> </g></svg>'
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -40,7 +41,7 @@ function addMarkers() {
                 for (const feria of barrio.ferias) {
                     const marker = L.marker([feria.long, feria.lat]).addTo(map);
                     markers.push([marker, barrio.id, municipio.id]);
-                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a target="_blank" href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir</a>`)
+                    marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a class="popup-anchor" target="_blank" href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir ${newTabSvg}</a>`)
                     marker.addEventListener('click', () => {
                         for (const item of document.querySelectorAll('.active')) {
                             item.classList.replace('active', 'inactive');

@@ -1,5 +1,5 @@
 let FERIAS_ONLINE_URL = 'https://arts-str.github.io/montevideo-ferias/ferias.json';
-let FERIAS_LOCAL_URL = 'ferias.json';
+let FERIAS_LOCAL_URL = './json/ferias.json';
 
 let municipiosObj;
 
