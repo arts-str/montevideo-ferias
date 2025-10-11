@@ -207,5 +207,11 @@ function returnRedMarker(markers) {
 function showUser() {
     if (userPosition !== undefined) {
         map.flyTo([userPosition.lat, userPosition.lng], 16, {animate: true, animate: true, duration: 1, noMoveStart: true});
+    }else{
+        getLocation();
+        setTimeout(() => {
+            
+            map.flyTo([userPosition.lat, userPosition.lng], 16, {animate: true, animate: true, duration: 1, noMoveStart: true});
+        }, 1000);
     }
 }

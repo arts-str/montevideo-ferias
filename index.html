@@ -1,100 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Montevideo ferias</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="./favicon.ico" />
-
-    <!-- Add to home screen on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Ferias">
-
-    <!-- iOS icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/mf-logo-180.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="./assets/mf-logo-192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="./assets/mf-logo-512.png">
-
-    <!-- iPhone SE (1st gen), 5, 5S, 5C -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-640x1136.png"
-    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-    
-    <!-- iPhone 6, 6S, 7, 8, SE (2nd/3rd gen) -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-750x1334.png"
-    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-    
-    <!-- iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1242x2208.png"
-    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    
-    <!-- iPhone X, XS, 11 Pro -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1125x2436.png"
-    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    
-    <!-- iPhone XR, 11 -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-828x1792.png"
-    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-    
-    <!-- iPhone XS Max, 11 Pro Max -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1242x2688.png"
-    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    
-    <!-- iPhone 12, 13, 14, 15, 16 Mini -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1080x2340.png"
-    media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    
-    <!-- iPhone 12, 13, 14, 15, 16 (regular / Pro) -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1170x2532.png"
-    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-    
-    <!-- iPhone 12, 13, 14, 15, 16 Pro Max -->
-    <link rel="apple-touch-startup-image" 
-    href="./assets/mf-startup-1284x2778.png"
-    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-
-
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#000000">
-
-</head>
-<body>
-    <main>
-        <div class="menu-hamburguesa" id="hambMenu">
-            <svg width="1rem" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="16" height="16" id="icon-bound" fill="none"></rect> <path d="M1,9h14V7H1V9z M1,14h14v-2H1V14z M1,2v2h14V2H1z"></path> </g></svg>
-        </div>
-
-        <div class="locate-user" id="userLocate">
-            <svg width="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.36328 12.0523C4.01081 11.5711 3.33457 11.3304 3.13309 10.9655C2.95849 10.6492 2.95032 10.2673 3.11124 9.94388C3.29694 9.57063 3.96228 9.30132 5.29295 8.76272L17.8356 3.68594C19.1461 3.15547 19.8014 2.89024 20.2154 3.02623C20.5747 3.14427 20.8565 3.42608 20.9746 3.7854C21.1106 4.19937 20.8453 4.85465 20.3149 6.16521L15.2381 18.7078C14.6995 20.0385 14.4302 20.7039 14.0569 20.8896C13.7335 21.0505 13.3516 21.0423 13.0353 20.8677C12.6704 20.6662 12.4297 19.99 11.9485 18.6375L10.4751 14.4967C10.3815 14.2336 10.3347 14.102 10.2582 13.9922C10.1905 13.8948 10.106 13.8103 10.0086 13.7426C9.89876 13.6661 9.76719 13.6193 9.50407 13.5257L5.36328 12.0523Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>        </div>
-        <aside id="menu">
-            <h2>Municipios</h2>
-            <ul id="listadoFerias">
-                <h3 id="showAllMarkersBttn" class="active">Mostrar todos</h3>
-            </ul>
-        </aside>
-        <div id="map"></div>
-    </main>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-    <script src="js/fetch.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Montevideo ferias</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        <link rel="icon" href="./favicon.ico" />
+        
+        <!-- Add to home screen on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Ferias">
+        
+        <!-- iOS icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/mf-logo-180.png">
+        <link rel="apple-touch-icon" sizes="192x192" href="./assets/mf-logo-192.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="./assets/mf-logo-512.png">
+        
+        <!-- iPhone SE (1st gen), 5, 5S, 5C -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-640x1136.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+        
+        <!-- iPhone 6, 6S, 7, 8, SE (2nd/3rd gen) -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-750x1334.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+        
+        <!-- iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1242x2208.png"
+        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        <!-- iPhone X, XS, 11 Pro -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1125x2436.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        <!-- iPhone XR, 11 -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-828x1792.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+        
+        <!-- iPhone XS Max, 11 Pro Max -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1242x2688.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        <!-- iPhone 12, 13, 14, 15, 16 Mini -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1080x2340.png"
+        media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        <!-- iPhone 12, 13, 14, 15, 16 (regular / Pro) -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1170x2532.png"
+        media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        <!-- iPhone 12, 13, 14, 15, 16 Pro Max -->
+        <link rel="apple-touch-startup-image" 
+        href="./assets/mf-startup-1284x2778.png"
+        media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+        
+        
+        <link rel="manifest" href="./manifest.json">
+        <meta name="theme-color" content="#000000">
+        
+    </head>
+    <body>
+        <main>
+            <nav>
+                <img class="logo" src="./assets/mf-logo-180.png" alt="" draggable="false">
+                <input type="search" id="busqueda" placeholder="Busca una feria aquí">
+                <div class="menu-hamburguesa" id="hambMenu">
+                    <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="16" height="16" id="icon-bound" fill="none"></rect> <path d="M1,9h14V7H1V9z M1,14h14v-2H1V14z M1,2v2h14V2H1z"></path> </g></svg>
+                </div>
+            </nav>
+            <div class="container">
+                <div id="map"></div>
+                <div class="locate-user" id="userLocate">
+                    <svg width="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.36328 12.0523C4.01081 11.5711 3.33457 11.3304 3.13309 10.9655C2.95849 10.6492 2.95032 10.2673 3.11124 9.94388C3.29694 9.57063 3.96228 9.30132 5.29295 8.76272L17.8356 3.68594C19.1461 3.15547 19.8014 2.89024 20.2154 3.02623C20.5747 3.14427 20.8565 3.42608 20.9746 3.7854C21.1106 4.19937 20.8453 4.85465 20.3149 6.16521L15.2381 18.7078C14.6995 20.0385 14.4302 20.7039 14.0569 20.8896C13.7335 21.0505 13.3516 21.0423 13.0353 20.8677C12.6704 20.6662 12.4297 19.99 11.9485 18.6375L10.4751 14.4967C10.3815 14.2336 10.3347 14.102 10.2582 13.9922C10.1905 13.8948 10.106 13.8103 10.0086 13.7426C9.89876 13.6661 9.76719 13.6193 9.50407 13.5257L5.36328 12.0523Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>        </div>
+                <aside id="menu" data-scrollable>
+                    <h2>Municipios</h2>
+                    <ul id="listadoFerias">
+                        <h3 id="showAllMarkersBttn" class="active">Mostrar todos</h3>
+                    </ul>
+                </aside>
+            </div>
+        </main>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+         crossorigin=""></script>
+        <script src="js/fetch.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>

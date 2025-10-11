@@ -4,21 +4,56 @@
     font-family: 'Hanken Grotesk', sans-serif;
 }
 :root{
-    --light-bg: #D9D9D9;
-    --light-bg-hover: #c9c8c8;
-    --light-bg-active: #b9b9b9;
+    --light-bg: #499f30;
+    --light-bg-hover: #388220;
+    --light-bg-active: #2f7330;
 }
 
-html{
-    
+html, body{
     overflow-x: hidden;
+    overscroll-behavior: none;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    touch-action: manipulation;
 }
 
+nav{
+    background-color: var(--light-bg);
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 7dvh;
+}
+nav input{
+    width: 30%;
+    height: 1.5rem;
+    border-radius: 1rem;
+    padding-left: .5rem;
+}
+nav input:focus {
+    outline: 2px solid var(--light-bg-active); 
+}
+.logo{
+    padding-left: 1rem;
+    width: 2rem;
+    user-select: none;
+    touch-action: none;
+    pointer-events: none;
+}
 main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    overflow: hidden;
 }
-
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100dvw;
+    max-width: 100dvw;
+    overflow: hidden;
+}
 .popup-anchor{
     display: flex;
     width: fit-content;
@@ -31,7 +66,7 @@ main{
 }
 
 #map { 
-    height: 100vh; 
+    height: 93dvh; 
     width: 100%;
     z-index: 0;
 }
@@ -45,10 +80,13 @@ main{
 }
 
 aside{
-    width: 30%;
-    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 20%;
+    height: 93vh;
     background-color: var(--light-bg);
     z-index: 1;
+    transform: translateX(110%);
     transition: transform 200ms ease-in-out;
 }
 
@@ -71,12 +109,14 @@ aside ul{
 .menu-hamburguesa{
     background-color: var(--light-bg);
     width: fit-content;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: none;
+    padding: .5rem;
     z-index: 2;
+}
+.menu-hamburguesa svg{
+    width: 1rem;
+}
+.menu-hamburguesa:hover{
+    background-color: var(--light-bg-hover);
 }
 
 .locate-user{
@@ -133,18 +173,14 @@ aside ul{
 
 /*Tablet*/
 @media only screen and (max-width: 768px) {
-    main{
-        flex-direction: column-reverse;
-    }
-    .menu-hamburguesa{
-        display: inline-block;
-    }
     aside{
         position: absolute;
+        bottom: 0;
         height: fit-content;
+        overflow-y: scroll;
+        max-height: 30vh;
         width: 85%;
         padding: 2rem 2rem 3rem 2rem;
-        transform: translateX(110%);
     }
     h2{
         font-size: 2rem;
@@ -156,7 +192,18 @@ aside ul{
     aside ul li{
         font-size: 1.2rem;
     }
-
+    #map{
+        height: 90dvh;
+    }
+    nav{
+        height: 10dvh;
+    }
+    nav input{
+        width: 50%;
+    }
+    nav .logo{
+        width: 3rem;
+    }
 }
 
 /*Movil*/

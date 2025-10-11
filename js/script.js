@@ -1,8 +1,27 @@
-document.addEventListener("touchmove", function(e) {
-    if (e.touches.length > 1 || e.touches[0].clientY > 0) {
-      e.preventDefault();
+document.addEventListener('touchmove', function (e) {
+    if (e.scale !== 1) {
+      e.preventDefault(); // 👈 prevent pinch zoom
     }
-  }, { passive: false });
+}, { passive: false });
+['gesturestart', 'gesturechange', 'gestureend'].forEach(event => {
+    document.addEventListener(event, e => e.preventDefault());
+  });
+  
+const searchInput = document.querySelector('nav input');
+
+searchInput.addEventListener('focus', () => {
+  // Lock the page width to prevent iOS from expanding layout
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
+  document.body.style.overflow = 'hidden';
+});
+
+searchInput.addEventListener('blur', () => {
+  // Restore after keyboard closes
+  document.body.style.position = '';
+  document.body.style.width = '';
+  document.body.style.overflow = '';
+});
 
 const listadoFerias = document.getElementById('listadoFerias');
 const menu = document.getElementById('menu');
@@ -84,3 +103,32 @@ if ('serviceWorker' in navigator) {
         .catch(err => console.log('SW registration failed:', err));
     });
   }
+
+let busqueda = document.getElementById('busqueda'); 
+busqueda.addEventListener('input', () =>{
+    console.log(buscar(allFerias(), busqueda.value));
+});
+
+let allFerias = () =>{
+    let ferias = [];
+    for (const municipio of municipiosObj.municipios) {
+        for (const ccz of municipio.ccz) {
+            ccz.barrios.forEach((barrio) => {
+                for (const feria of barrio.ferias) {
+                    ferias.push([feria, barrio]);
+                }
+            })
+        }
+    }
+    return ferias;
+}
+
+function buscar(allFerias, query) {
+    let result = [];
+    allFerias.forEach(feria => {
+        if (feria[0].calles.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || feria[0].dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || feria[1].nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) {
+            result.push(feria);
+        }
+    });
+    return result;
+}
