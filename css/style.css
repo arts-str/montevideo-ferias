@@ -109,11 +109,12 @@ aside ul{
 .menu-hamburguesa{
     background-color: var(--light-bg);
     width: fit-content;
-    padding: .5rem;
+    padding: 1rem;
+    margin-right: 1rem;
     z-index: 2;
 }
 .menu-hamburguesa svg{
-    width: 1rem;
+    width: 1.5rem;
 }
 .menu-hamburguesa:hover{
     background-color: var(--light-bg-hover);
