@@ -20,6 +20,8 @@ prefersDark.addEventListener("change", e => {
 document.getElementById("toggle-theme").addEventListener("click", () => {
     isDark = glLayer.options.style === darkStyle;
     updateMapStyle(isDark ? brightStyle : darkStyle);
+    document.getElementById("toggle-theme").classList.toggle('rotated');
+
 });
 
 function updateMapStyle(newStyle) {
