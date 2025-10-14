@@ -4,15 +4,15 @@
     font-family: 'Hanken Grotesk', sans-serif;
 }
 :root{
-    --bg: #d9d9d9;
-    --bg-hover: #d9d9d9;
-    --bg-active: #d9d9d9;
-    --light-bg: #d9d9d9;
-    --light-bg-hover: #d9d9d9;
-    --light-bg-active: #d9d9d9;
-    --dark-bg: #000023;
-    --dark-bg-hover: #000023;
-    --dark-bg-active: #000023;
+    --bg: #f2f2f2;
+    --bg-hover: #f2f2f2;
+    --bg-active: #f2f2f2;
+    --light-bg: #f2f2f2;
+    --light-bg-hover: #c2c2c2;
+    --light-bg-active: #c2c2c2;
+    --dark-bg: #0f0f0f;
+    --dark-bg-hover: #2b2b2b;
+    --dark-bg-active: #2b2b2b;
 }
 
 .color-mode-transition{
@@ -35,6 +35,8 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 7dvh;
+    overflow: hidden;
+    z-index: 2;
 }
 nav input{
     width: 30%;
@@ -43,7 +45,7 @@ nav input{
     padding-left: .5rem;
 }
 nav input:focus {
-    outline: 2px solid var(--bg-active); 
+    outline: 2px solid var(--dark-bg); 
 }
 .logo{
     padding-left: 1rem;
@@ -93,11 +95,12 @@ aside{
     position: absolute;
     right: 0;
     width: 20%;
-    height: 93vh;
+    height: 92dvh;
     background-color: var(--bg);
     z-index: 1;
     transform: translateX(110%);
     transition: transform 200ms ease-in-out;
+    padding: 1dvh 0 0 1rem;
 }
 
 aside ul{
