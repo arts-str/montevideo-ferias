@@ -3,6 +3,8 @@ var map = L.map('map', { zoomControl: false }).setView([-34.894208201285736, -56
 const brightStyle = "./json/bright.json";
 const darkStyle   = "./json/dark.json";
 
+let isDark;
+
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 let glLayer = L.maplibreGL({
@@ -15,7 +17,6 @@ prefersDark.addEventListener("change", e => {
   updateMapStyle(e.matches ? darkStyle : brightStyle);
 });
 
-let isDark = glLayer.options.style === darkStyle;
 document.getElementById("toggle-theme").addEventListener("click", () => {
     isDark = glLayer.options.style === darkStyle;
     updateMapStyle(isDark ? brightStyle : darkStyle);

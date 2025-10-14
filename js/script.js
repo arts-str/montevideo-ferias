@@ -135,6 +135,13 @@ function buscar(allFerias, query) {
 
 
 function updateColors() {
+
+    let logo = document.getElementById('logo');
+
+    console.log(logo, isDark);
+    let imgSrc = (isDark) ? './assets/mf-logo-dark-42.png':'./assets/mf-logo-light-42.png';
+    logo.src = imgSrc;
+
     let r = document.querySelector(':root');
     let rs = getComputedStyle(r);
     let currentColor = rs.getPropertyValue('--bg');

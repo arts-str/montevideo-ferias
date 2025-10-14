@@ -4,15 +4,15 @@
     font-family: 'Hanken Grotesk', sans-serif;
 }
 :root{
-    --bg: #499f30;
-    --bg-hover: #388220;
-    --bg-active: #2f7330;
-    --light-bg: #499f30;
-    --light-bg-hover: #388220;
-    --light-bg-active: #2f7330;
-    --dark-bg: hsl(106, 54%, 20%);
-    --dark-bg-hover: hsl(105, 60%, 15%);
-    --dark-bg-active: hsl(121, 42%, 10%);
+    --bg: #d9d9d9;
+    --bg-hover: #d9d9d9;
+    --bg-active: #d9d9d9;
+    --light-bg: #d9d9d9;
+    --light-bg-hover: #d9d9d9;
+    --light-bg-active: #d9d9d9;
+    --dark-bg: #000023;
+    --dark-bg-hover: #000023;
+    --dark-bg-active: #000023;
 }
 
 .color-mode-transition{
@@ -125,7 +125,9 @@ aside ul{
     z-index: 2;
 }
 .menu-hamburguesa svg{
+    fill: white;
     width: 1.5rem;
+    mix-blend-mode:exclusion;
 }
 .menu-hamburguesa:hover{
     background-color: var(--bg-hover);
