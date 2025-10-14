@@ -15,9 +15,10 @@ prefersDark.addEventListener("change", e => {
   updateMapStyle(e.matches ? darkStyle : brightStyle);
 });
 
+let isLight = !glLayer.options.style === darkStyle;
 document.getElementById("toggle-theme").addEventListener("click", () => {
-  const isDark = glLayer.options.style === darkStyle;
-  updateMapStyle(isDark ? brightStyle : darkStyle);
+    isLight = glLayer.options.style === darkStyle;
+    updateMapStyle(isLight ? brightStyle : darkStyle);
 });
 
 function updateMapStyle(newStyle) {
@@ -55,15 +56,46 @@ var blueIcon = new L.Icon({
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
 });
+var userIcon = new L.Icon({
+    iconUrl: './assets/user-marker.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -10]
+});
+var feriaIconLightClosest = new L.Icon({
+    iconUrl: './assets/feria-marker-light-closest.png',
+    iconSize: [25, 29],
+    iconAnchor: [10, 29],
+    popupAnchor: [3, -29]
+});
+var feriaIconLight = new L.Icon({
+    iconUrl: './assets/feria-marker-light.png',
+    iconSize: [25, 29],
+    iconAnchor: [10, 29],
+    popupAnchor: [3, -29]
+});
+var feriaIconDarkClosest = new L.Icon({
+    iconUrl: './assets/feria-marker-dark-closest.png',
+    iconSize: [25, 29],
+    iconAnchor: [10, 29],
+    popupAnchor: [3, -29]
+});
+var feriaIconDark = new L.Icon({
+    iconUrl: './assets/feria-marker-dark.png',
+    iconSize: [25, 29],
+    iconAnchor: [10, 29],
+    popupAnchor: [3, -29]
+});
 
-
+let currentIcon = (isLight) ? feriaIconLight:feriaIconDark;
+let currentIconClosest = (isLight) ? feriaIconLightClosest:feriaIconDarkClosest;
 
 function addMarkers() {
     for (const municipio of municipiosObj.municipios) {
         for (const ccz of municipio.ccz) {
             ccz.barrios.forEach((barrio) => {
                 for (const feria of barrio.ferias) {
-                    const marker = L.marker([feria.long, feria.lat]).addTo(map);
+                    const marker = L.marker([feria.long, feria.lat], {icon: currentIcon}).addTo(map);
                     markers.push([marker, barrio.id, municipio.id]);
                     marker.bindPopup(`${feria.calles}<br><b>${feria.dia}</b> <br> <a class="popup-anchor" target="_blank" href="https://www.google.com/maps/dir//${feria.long},${feria.lat}/@${feria.long},${feria.lat},17z">Cómo ir ${newTabSvg}</a>`)
                     marker.addEventListener('click', () => {
@@ -182,8 +214,8 @@ function showPosition(position) {
     userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
     //let userPosition = L.latLng(-34.907174333039514, -56.17920902148484);
     console.log(userPosition, markers);
-    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
-    userMarker = L.marker(userPosition, {icon: greenIcon}).addTo(map).bindPopup(`Estas aquí`);
+    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(currentIconClosest);
+    userMarker = L.marker(userPosition, {icon: userIcon}).addTo(map).bindPopup(`Estas aquí`);
     setInterval(() => {
         updateLocation();
     }, );
@@ -215,14 +247,14 @@ function returnClosestMarker(distanceArray) {
 
 function updateUserPosition(position) {
     userPosition = L.latLng(position.coords.latitude, position.coords.longitude);
-    returnRedMarker(markers).setIcon(blueIcon);
+    returnRedMarker(markers).setIcon(currentIcon);
     userMarker.setLatLng(userPosition);
-    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(redIcon);
+    returnClosestMarker(getDistanceArray(userPosition, markers)).setIcon(currentIconClosest);
 }
 
 function returnRedMarker(markers) {
     for (const marker of markers) {
-        if (marker[0].getIcon() === redIcon) {
+        if (marker[0].getIcon() === currentIconClosest) {
             return marker[0];
         }
     }
