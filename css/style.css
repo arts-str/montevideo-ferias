@@ -4,9 +4,19 @@
     font-family: 'Hanken Grotesk', sans-serif;
 }
 :root{
+    --bg: #499f30;
+    --bg-hover: #388220;
+    --bg-active: #2f7330;
     --light-bg: #499f30;
     --light-bg-hover: #388220;
     --light-bg-active: #2f7330;
+    --dark-bg: hsl(106, 54%, 20%);
+    --dark-bg-hover: hsl(105, 60%, 15%);
+    --dark-bg-active: hsl(121, 42%, 10%);
+}
+
+.color-mode-transition{
+    transition: none;
 }
 
 html, body{
@@ -19,7 +29,7 @@ html, body{
 }
 
 nav{
-    background-color: var(--light-bg);
+    background-color: var(--bg);
     display: flex;
     direction: row;
     justify-content: space-between;
@@ -33,7 +43,7 @@ nav input{
     padding-left: .5rem;
 }
 nav input:focus {
-    outline: 2px solid var(--light-bg-active); 
+    outline: 2px solid var(--bg-active); 
 }
 .logo{
     padding-left: 1rem;
@@ -84,7 +94,7 @@ aside{
     right: 0;
     width: 20%;
     height: 93vh;
-    background-color: var(--light-bg);
+    background-color: var(--bg);
     z-index: 1;
     transform: translateX(110%);
     transition: transform 200ms ease-in-out;
@@ -95,19 +105,20 @@ aside ul{
 }
 
 .active{
-    background-color: var(--light-bg-active);
+    background-color: var(--bg-active);
 }
 
 .barrio:hover, .municipio:hover, #listadoFerias h3:hover{
     cursor: pointer;
-    background-color: var(--light-bg-hover);
+    transition: none;
+    background-color: var(--bg-hover);
 }
 #listadoFerias h3, #listadoFerias li{
     user-select: none;
 }
 
 .menu-hamburguesa{
-    background-color: var(--light-bg);
+    background-color: var(--bg);
     width: fit-content;
     padding: 1rem;
     margin-right: 1rem;
@@ -117,11 +128,11 @@ aside ul{
     width: 1.5rem;
 }
 .menu-hamburguesa:hover{
-    background-color: var(--light-bg-hover);
+    background-color: var(--bg-hover);
 }
 
 .locate-user{
-    background-color: var(--light-bg);
+    background-color: var(--bg);
     width: fit-content;
     padding: 1rem .8rem .5rem .8rem;
     position: fixed;
@@ -132,11 +143,11 @@ aside ul{
 }
 
 .locate-user:target{
-    background-color: var(--light-bg-active);
+    background-color: var(--bg-active);
 }
 
 .locate-user:hover{
-    background-color: var(--light-bg-hover);
+    background-color: var(--bg-hover);
 }
 
 .show{
