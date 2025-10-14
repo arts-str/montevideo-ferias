@@ -47,6 +47,19 @@ nav input{
 nav input:focus {
     outline: 2px solid var(--dark-bg); 
 }
+.nav-controls{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.color-toggle{
+    background-color: var(--bg);
+    padding: 1rem;
+}
+.color-toggle:hover{
+    background-color: var(--bg-hover);
+    cursor: pointer;
+}
 .logo{
     padding-left: 1rem;
     width: 2rem;
@@ -107,11 +120,12 @@ aside ul{
     list-style-type: none;
 }
 
-aside svg{
+#toggle-theme{
+    mix-blend-mode: exclusion;
     position: relative;
-    left: 90%;
     transition: rotate 200ms ease-in-out;
 }
+
 
 .active{
     background-color: var(--bg-active);
@@ -135,7 +149,7 @@ aside svg{
 }
 .menu-hamburguesa svg{
     fill: white;
-    width: 1.5rem;
+    width: 2rem;
     mix-blend-mode:exclusion;
 }
 .menu-hamburguesa:hover{
