@@ -165,6 +165,7 @@ function updateColors() {
         element.style.transition = 'background-color 200ms ease-in-out, outline 200ms ease-in-out, box-shadow 200ms ease-in-out, color 200ms ease-in-out, fill 200ms ease-in-out, stroke 200ms ease-in-out';
         setTimeout(() => {
             element.style.transition = 'none';
+            menu.style.transition = 'transform 200ms ease-in-out';
         }, 200);
     });
     if (currentColor === colorL) {

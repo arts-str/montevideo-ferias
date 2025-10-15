@@ -55,6 +55,7 @@ nav input:focus {
 .color-toggle{
     background-color: var(--bg);
     padding: 1rem;
+    width: 2rem;
 }
 .color-toggle:hover{
     background-color: var(--bg-hover);
@@ -121,11 +122,12 @@ aside ul{
 }
 
 #toggle-theme{
-    mix-blend-mode: exclusion;
     position: relative;
+}
+#toggle-theme svg{
+    mix-blend-mode: exclusion;
     transition: rotate 200ms ease-in-out;
 }
-
 
 .active{
     background-color: var(--bg-active);
@@ -144,7 +146,6 @@ aside ul{
     background-color: var(--bg);
     width: fit-content;
     padding: 1rem;
-    margin-right: 1rem;
     z-index: 2;
 }
 .menu-hamburguesa svg{
@@ -241,8 +242,24 @@ aside ul{
     nav .logo{
         width: 3rem;
     }
+    .nav-controls{
+        gap: 0;
+    }
+
 }
 
 /*Movil*/
 @media only screen and (max-width: 320px) {
+    .menu-hamburguesa{
+        padding: .5rem;
+    }
+    .menu-hamburguesa svg{
+        width: 1rem;
+    }
+    .color-toggle{
+        padding: .5rem;
+    }
+    .color-toggle{
+        width: 1rem;
+    }
 }
